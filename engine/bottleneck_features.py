@@ -39,13 +39,13 @@ import datetime
 now = datetime.datetime.now
 
 
-epochs = 1
+epochs = 100
 
 # Base directory of raw jpg/png images
-base_dir = '/home/sandbox/GKalliatakis-GitHub Account/Traffic-Analysis/dataset/MotorwayTraffic'
+base_dir = '/home/sandbox/GKalliatakis-GitHub Account/Traffic_Analysis_Image_Dataset/dataset/MotorwayTraffic'
 
 # Base directory for saving the trained models
-base_dir_trained_models = '/home/sandbox/GKalliatakis-GitHub Account/Traffic-Analysis/trained_models/'
+base_dir_trained_models = '/home/sandbox/GKalliatakis-GitHub Account/Traffic_Analysis_Image_Dataset/trained_models/'
 bottleneck_features_dir = os.path.join(base_dir_trained_models, 'bottleneck_features/')
 logs_dir = os.path.join(base_dir_trained_models, 'logs/')
 
