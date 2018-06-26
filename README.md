@@ -1,15 +1,17 @@
 # MAT-CNN-FPGA: Traffic Analysis Using CNNs on FPGA
 
+## Motionless Analysis of Traffic Using Convolutional Neural Networks on FPGA: MAT-CNN-FPGA
 
+### Train simple CNN (using Matlab)
+
+Use the vgg16_custom.m in /source/matlab/.
 
 ### Train simple CNN (using Keras)
 
-Use the train_routine.py. Varying parameters are :
+Use the train_routine.py in /source/python/. Varying parameters are :
 
 ```python
 pre_trained_model='VGG16'
-
-data_augm_enabled = False
 ```
 
 Also you can change the number of training epochs inside source/python/engine/bottleneck_features.py
