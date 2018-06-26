@@ -9,7 +9,7 @@ function vgg16_custom()
 
     %Split DataSet into two sets: Training & Validation. Here Split is done on
     %9:1 ratio.
-    [imdsTrain,imdsValidation] = splitEachLabel(imds,0.5,'randomized');
+    [imdsTrain,imdsValidation] = splitEachLabel(imds,0.9,'randomized');
 
     %Select 9 random image numbers to show
     numTrainImages = numel(imdsTrain.Labels);
@@ -87,9 +87,11 @@ function vgg16_custom()
     %%Classify Validation Images
     [YPred,scores] = classify(netTransfer,augimdsValidation);
     %Display Predication and it's score
-    fprintf('Prediction: %s' , YPred , ', Scores: %s' , scores);
+    fprintf('Prediction: %s' , YPred , ', Scores: ');
+    disp(scores);
+    fprintf('\n');
 
-    %%Display four sample validation images with their predicted labels
+    %%Display nine sample validation images with their predicted labels
     idx = randperm(numel(imdsValidation.Files),9);
     figure
     for i = 1:9
@@ -105,4 +107,35 @@ function vgg16_custom()
     accuracy = mean(YPred == YValidation);
     %Display Accuracy
     fprintf('Accuracy: %s' , accuracy);
+    
+    %Test classification on a completely different set
+    %Just resize the validation dataset
+        %%Load DataSet
+    test_imds = imageDatastore('/Users/somdipdey/Documents/MATLAB/Add-Ons/Collections/Deep Learning Tutorial Series/code/AHS/test_dataset', ...
+        'IncludeSubfolders',true, ...
+        'LabelSource','foldernames');
+    test_augimdsValidation = augmentedImageDatastore(inputSize(1:2),test_imds);
+    %%Classify Test Images
+    [YPred2,scores2] = classify(netTransfer,test_augimdsValidation);
+    %Display Predication and it's score
+    fprintf('\n Testing on a completely new dataset \n');
+    fprintf('Prediction: %s' , YPred2 , ', Scores: ');
+    disp(scores2);
+    fprintf('\n');
+    %%Calculate the classification accuracy on the validation set. Accuracy is the fraction of labels that the network predicts correctly
+    test_YValidation = test_imds.Labels;
+    accuracy = mean(YPred2 == test_YValidation);
+    %Display Accuracy
+    fprintf('\n Accuracy: %s' , accuracy);
+    
+    %%Display nine sample validation images with their predicted labels
+    idx2 = randperm(numel(test_imds.Files),9);
+    figure
+    for i = 1:9
+        subplot(3,3,i)
+        I = readimage(test_imds,idx2(i));
+        imshow(I)
+        label = YPred2(idx2(i));
+        title(string(label));
+    end
 end
