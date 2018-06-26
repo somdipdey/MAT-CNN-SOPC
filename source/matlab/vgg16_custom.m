@@ -9,7 +9,7 @@ function vgg16_custom()
 
     %Split DataSet into two sets: Training & Validation. Here Split is done on
     %9:1 ratio.
-    [imdsTrain,imdsValidation] = splitEachLabel(imds,0.7,'randomized');
+    [imdsTrain,imdsValidation] = splitEachLabel(imds,0.5,'randomized');
 
     %Select 9 random image numbers to show
     numTrainImages = numel(imdsTrain.Labels);
@@ -78,7 +78,7 @@ function vgg16_custom()
         'ValidationFrequency',3, ...
         'ValidationPatience',Inf, ...
         'Verbose',false, ...
-        'ExecutionEnvironment','Cpu', ...
+        'ExecutionEnvironment','cpu', ...
         'Plots','training-progress');
 
     %Finally start training
@@ -87,7 +87,7 @@ function vgg16_custom()
     %%Classify Validation Images
     [YPred,scores] = classify(netTransfer,augimdsValidation);
     %Display Predication and it's score
-    disp('Prediction: ' + YPred + ', Scores: ' + scores);
+    fprintf('Prediction: %s' , YPred , ', Scores: %s' , scores);
 
     %%Display four sample validation images with their predicted labels
     idx = randperm(numel(imdsValidation.Files),9);
@@ -104,5 +104,5 @@ function vgg16_custom()
     YValidation = imdsValidation.Labels;
     accuracy = mean(YPred == YValidation);
     %Display Accuracy
-    disp('Accuracy: ' + accuracy);
+    fprintf('Accuracy: %s' , accuracy);
 end
