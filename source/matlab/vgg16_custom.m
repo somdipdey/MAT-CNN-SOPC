@@ -8,7 +8,7 @@ imds = imageDatastore('/Users/somdipdey/Downloads/Motorway-Traffic-Categorised',
 
 %Split DataSet into two sets: Training & Validation. Here Split is done on
 %9:1 ratio.
-[imdsTrain,imdsValidation] = splitEachLabel(imds,0.9,'randomized');
+[imdsTrain,imdsValidation] = splitEachLabel(imds,0.8,'randomized');
 
 %Select 9 random image numbers to show
 numTrainImages = numel(imdsTrain.Labels);
@@ -27,7 +27,7 @@ end
 inputSize = net.Layers(1).InputSize;
 
 %Get layers to transfer
-layersTransfer = net.Layers(1:end-1);
+layersTransfer = net.Layers(1:end-3);
 
 %Fetch num of classes
 numClasses = numel(categories(imdsTrain.Labels));
@@ -75,7 +75,7 @@ netTransfer = trainNetwork(augimdsTrain,layers,options);
 [YPred,scores] = classify(netTransfer,augimdsValidation);
 
 %%Display four sample validation images with their predicted labels
-idx = randperm(numel(imdsValidation.Files),4);
+idx = randperm(numel(imdsValidation.Files),9);
 figure
 for i = 1:9
     subplot(3,3,i)
