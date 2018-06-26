@@ -1,4 +1,4 @@
-# Traffic Analysis on FPGA
+# MAT-CNN-FPGA: Traffic Analysis Using CNNs on FPGA
 
 
 
