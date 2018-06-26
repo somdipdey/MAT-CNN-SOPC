@@ -42,16 +42,16 @@ function vgg16_custom()
         classificationLayer];
 
     %Display extracted feature of the last fully connected layer, which is
-    %custom built on 4 categories
-    last_layer = 39;
-    last_layer_name = net.Layers(last_layer).Name;
-    visual_channels = 1:6;
-    thisI = deepDreamImage(net,last_layer,visual_channels, ...
-        'PyramidLevels',1, ...
-        'NumIterations',28);
-    figure;
-    montage(thisI);
-    title(['Layer: ',last_layer_name,' Features'])
+    %custom built on 4 categories -->
+    %last_layer = 39;
+    %last_layer_name = net.Layers(last_layer).Name;
+    %visual_channels = 1:6;
+    %thisI = deepDreamImage(net,last_layer,visual_channels, ...
+    %    'PyramidLevels',1, ...
+    %    'NumIterations',28);
+    %figure;
+    %montage(thisI);
+    %title(['Layer: ',last_layer_name,' Features'])
     
     %%Train network
     % Augment dataset to prevent network from overfitting and memorizing
@@ -78,7 +78,7 @@ function vgg16_custom()
         'ValidationFrequency',3, ...
         'ValidationPatience',Inf, ...
         'Verbose',false, ...
-        'ExecutionEnvironment','auto', ...
+        'ExecutionEnvironment','Cpu', ...
         'Plots','training-progress');
 
     %Finally start training
