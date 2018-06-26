@@ -8,9 +8,9 @@
 
 Use the vgg16_custom.m in /source/matlab/. Execution:
 
-      >>vgg16_custom()
+    >> vgg16_custom()
 
-### Train simple CNN (using Keras)
+### Train simple CNN (using Keras in Python)
 
 Use the train_routine.py in /source/python/. Varying parameters are :
 
