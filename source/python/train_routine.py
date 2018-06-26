@@ -7,7 +7,7 @@ from engine.bottleneck_features import retrain_classifier
 model, elapsed_time = retrain_classifier(pre_trained_model='VGG16',
                                          pooling_mode='avg',
                                          classes=4,
-                                         data_augm_enabled = False)
+                                         data_augm_enabled = True)
 
 
 
