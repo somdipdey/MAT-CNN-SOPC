@@ -1,10 +1,10 @@
-# Traffic Analysis
+# Traffic Analysis on FPGA
 
 
 
-### Train simple CNN
+### Train simple CNN (using Keras)
 
-Use the train_routine.py. Main things to change are :
+Use the train_routine.py. Varying parameters are :
 
 ```python
 pre_trained_model='VGG16'
