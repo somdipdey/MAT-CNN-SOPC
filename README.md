@@ -6,7 +6,9 @@
 
 ### Train simple CNN (using Matlab)
 
-Use the vgg16_custom.m in /source/matlab/.
+Use the vgg16_custom.m in /source/matlab/. Execution:
+
+      >>vgg16_custom()
 
 ### Train simple CNN (using Keras)
 
