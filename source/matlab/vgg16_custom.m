@@ -9,7 +9,7 @@ function vgg16_custom()
 
     %Split DataSet into two sets: Training & Validation. Here Split is done on
     %9:1 ratio.
-    [imdsTrain,imdsValidation] = splitEachLabel(imds,0.9,'randomized');
+    [imdsTrain,imdsValidation] = splitEachLabel(imds,0.75,'randomized');
 
     %Select 9 random image numbers to show
     numTrainImages = numel(imdsTrain.Labels);
@@ -114,9 +114,13 @@ function vgg16_custom()
     test_imds = imageDatastore('/Users/somdipdey/Documents/MATLAB/Add-Ons/Collections/Deep Learning Tutorial Series/code/AHS/test_dataset', ...
         'IncludeSubfolders',true, ...
         'LabelSource','foldernames');
-    test_augimdsValidation = augmentedImageDatastore(inputSize(1:2),test_imds);
+    %test_augimdsValidation =
+    %augmentedImageDatastore(inputSize(1:2),test_imds);%no need to augment
+    %testing dataset if not needed
     %%Classify Test Images
-    [YPred2,scores2] = classify(netTransfer,test_augimdsValidation);
+    %[YPred2,scores2] = classify(netTransfer,test_augimdsValidation);% use if augmented
+    %test dataset is used for testing
+    [YPred2,scores2] = classify(netTransfer,test_imds);
     %Display Predication and it's score
     fprintf('\n Testing on a completely new dataset \n');
     fprintf('Prediction: %s' , YPred2 , ', Scores: ');
