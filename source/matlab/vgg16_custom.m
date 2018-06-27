@@ -124,9 +124,9 @@ function vgg16_custom()
     fprintf('\n');
     %%Calculate the classification accuracy on the validation set. Accuracy is the fraction of labels that the network predicts correctly
     test_YValidation = test_imds.Labels;
-    accuracy = mean(YPred2 == test_YValidation);
+    accuracy2 = mean(YPred2 == test_YValidation);
     %Display Accuracy
-    fprintf('\n Accuracy: %s' , accuracy);
+    fprintf('\n Accuracy: %s' , accuracy2);
     
     %%Display nine sample validation images with their predicted labels
     idx2 = randperm(numel(test_imds.Files),9);
