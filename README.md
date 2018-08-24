@@ -28,6 +28,7 @@ The `base_dir` and `base_dir_trained_models` variables must be adapted according
 
 ## Citation
 
+MAT-CNN-SOPC is presented at **2018 NASA/ESA Conference on Adaptive Hardware and Systems (AHS 2018)**. Link: https://www.ahs-conf.org 
 If you are using the MAT-CNN-SOPC code then please do cite the paper as follows:
 
     Dey, S., Kalliatakis, G., Saha, S., Singh, A.K., Ehsan, S. and McDonald-Maier, K., 2018. 
