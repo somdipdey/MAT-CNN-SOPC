@@ -25,3 +25,9 @@ The `base_dir` and `base_dir_trained_models` variables must be adapted according
 
 ### Accuracy Result
 <img width="750" alt="Face Detection Using OpenCV and Resource Monitoring" src="https://user-images.githubusercontent.com/8515608/41942318-fbaa5f28-7996-11e8-926c-f9575f12c347.png">
+
+## Citation
+
+If you are using the MAT-CNN-SOPC code then please do cite the paper as follows:
+
+    Dey, S., Kalliatakis, G., Saha, S., Singh, A.K., Ehsan, S. and McDonald-Maier, K., 2018. MAT-CNN-SOPC: Motionless Analysis of Traffic Using Convolutional Neural Networks on System-On-a-Programmable-Chip. arXiv preprint arXiv:1807.02098.
