@@ -34,4 +34,12 @@ If you are using the MAT-CNN-SOPC code then please do cite the paper as follows:
 
     Dey, S., Kalliatakis, G., Saha, S., Singh, A.K., Ehsan, S. and McDonald-Maier, K., 2018. 
     MAT-CNN-SOPC: Motionless Analysis of Traffic Using Convolutional Neural Networks on System-On-a-Programmable-Chip. 
-    arXiv preprint arXiv:1807.02098.
+    2018 NASA/ESA Conference on Adaptive Hardware and Systems (AHS 2018). Available at arXiv:1807.02098.
+    
+Bib:
+    @article{dey2018mat,
+  title={MAT-CNN-SOPC: Motionless Analysis of Traffic Using Convolutional Neural Networks on System-On-a-Programmable-Chip},
+  author={Dey, Somdip and Kalliatakis, Grigorios and Saha, Sangeet and Singh, Amit Kumar and Ehsan, Shoaib and McDonald-Maier, Klaus},
+  booktitle={Adaptive Hardware and Systems (AHS 2018), 2018 NASA/ESA Conference on},
+  year={2018}
+}
